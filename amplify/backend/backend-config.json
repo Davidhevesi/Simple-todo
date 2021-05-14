@@ -1,1 +1,10 @@
-{}
+{
+	"auth": {
+		"simpletodobe0ecb6a": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

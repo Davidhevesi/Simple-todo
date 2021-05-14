@@ -10,6 +10,11 @@
             "StackName": "amplify-simpletodo-dev-130828",
             "StackId": "arn:aws:cloudformation:us-east-2:041689282381:stack/amplify-simpletodo-dev-130828/0283c310-b4d7-11eb-952b-0a9e4daac7b4",
             "AmplifyAppId": "dtxy5m1f3p73z"
+        },
+        "categories": {
+            "auth": {
+                "simpletodobe0ecb6a": {}
+            }
         }
     }
 }
