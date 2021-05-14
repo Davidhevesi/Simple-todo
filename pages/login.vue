@@ -1,17 +1,32 @@
 <template>
-  <div>
-    //User not authenticated
-    <div v-if="!$auth.isAuthenticated">
-      <form  @submit.prevent="login">
-        <input v-model="form.email" type="email" placeholder="Email" />
-        <input v-model="form.password" type="password" placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
-      <nuxt-link to="/register">Need an account? Register</nuxt-link>
-    </div>
-    <div v-else>
-        Youre logged in as {{ $auth.email }}
-        <button @click="$store.dispatch(auth/logout)" class="bg-blue-300">Logout</button>
+  <div class="max-w-md mx-auto pt-6">
+    <div>
+      <h1 class="text-xl mb-3">Login</h1>
+
+      <!-- Unauthenticated -->
+      <div v-if="!$auth.isAuthenticated">
+        <form @submit.prevent="login">
+          <input v-model="form.email" type="email" placeholder="Email" />
+          <input
+            v-model="form.password"
+            type="password"
+            placeholder="Password"
+            class="form-control"
+          />
+          <button type="submit">Login</button>
+        </form>
+
+        <nuxt-link to="/register">Need an account? Register</nuxt-link>
+      </div>
+
+      <!-- Authenticated -->
+      <div v-else>
+        You're logged in as {{ $auth.email }}.
+        <button
+          @click="$store.dispatch('auth/logout')"
+          class="button--green"
+        >Logout</button>
+      </div>
     </div>
   </div>
 </template>
@@ -21,8 +36,8 @@ export default {
   data: () => ({
     form: {
       email: '',
-      password: '',
-    },
+      password: ''
+    }
   }),
   methods: {
     async login() {
@@ -32,7 +47,7 @@ export default {
       } catch (error) {
         console.log({ error })
       }
-    },
-  },
+    }
+  }
 }
 </script>
